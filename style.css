@@ -1,0 +1,141 @@
+* {margin: 0; padding: 0; border-width: 0;}
+
+body
+{
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 11pt;
+    background-color: #444;
+    color: #444;
+}
+
+a
+{
+    text-decoration: none;
+    color: #675ede;
+}
+
+a:hover
+{
+}
+
+#begin 
+{
+    display: block;
+    text-align: center;
+}
+
+#status_update_form
+{
+    position: relative;
+    padding-right: 5em;
+    border-bottom: 12px solid #444;
+}
+
+#status_text
+{
+    background-color: #fff;
+    color: #444;
+    border-width: 0;
+    overflow: hidden;
+    width: 100%;
+    font-family: "Helvetica", "Arial", sans-serif;
+}
+
+#chars_left
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#status_update_submit
+{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 5em;
+
+    background-color: #fff;
+    color: #675ede;
+    font-size: 100%;
+    font-family: "Helvetica", "Arial", sans-serif;
+}
+
+.tweet
+{
+    margin: 0 0 0.5em 0;
+}
+
+.tweet .info
+{
+    float: left;
+    display: none;
+    width: 48px;
+    padding: 1px;
+    margin-left: -56px;
+    font-size: 8px;
+}
+
+.tweet:hover .info
+{
+    /*display: block;*/
+}
+
+.tweet .info img
+{
+    display: block;
+    width: 48px;
+    height: 48px;
+}
+
+.tweet .body
+{
+    opacity: 0.5;
+}
+
+.tweet.unread .body
+{
+    opacity: 1.0;
+}
+
+{
+    font-weight: bold;
+}
+
+.tweet:first-child .info, .tweet:first-child .body
+{
+}
+
+.tweet_author
+{
+    font-weight: bold;
+    /*margin-right: 1em;*/
+}
+
+.tweet_text
+{
+}
+
+#debug, #debug_form
+{
+    display: none;
+}
+
+#tweets_container
+{
+    margin: 0 auto;
+    width: 400px;
+    background-color: #fff;
+    padding: 0.5em
+}
+
+#mark_as_read
+{
+}
+
+#tweet_list
+{
+    list-style-type: none;
+    padding: 0.5em;
+    /*border-bottom: 1px solid lightgray;*/
+}

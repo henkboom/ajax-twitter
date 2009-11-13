@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>ajax twitter</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <script type="text/javascript" src="jquery.js"> </script>
+    <script type="text/javascript" src="main.js"> </script>
+    <script type="text/javascript">
+      //$(function () {init($("#tweets_container"), $("#debug"));});
+      $(function () {$("#begin").click(function () {
+          init($("#tweets_container"), $("#debug"));
+          return false;
+      })})
+      $(function () {$("#debug_form").submit(function () {
+          eval($("#debug_entry").val());
+          $("#debug_entry").val("");
+          return false;
+      })});
+    </script>
+  </head>
+  <body>
+    <form action="" id="debug_form">
+      <input type="text" id="debug_entry" value="" />
+      <input type="submit" id="debug_submit" value="run" />
+    </form>
+    <div id="tweets_container">
+      <a id="begin" href="">Begin</a>
+    </div>
+    <div id="debug"></div>
+  </body>
+</html>
