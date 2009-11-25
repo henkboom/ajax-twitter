@@ -147,13 +147,13 @@ function processTweetBody(body)
 {
     body = body.replace(
         urlRegex,
-        '<a href="$1">$1</a>');
+        '<a href="$1" target="_blank">$1</a>');
     body = body.replace(
         mentionRegex,
-        '<a href="http://twitter.com/$1">@$1</a>');
+        '<a href="http://twitter.com/$1" target="_blank">@$1</a>');
     body = body.replace(
         hashRegex,
-        '<a href="http://search.twitter.com/search?q=%23$1">#$1</a>');
+        '<a href="http://search.twitter.com/search?q=%23$1" target="_blank">#$1</a>');
     return body;
 }
 
