@@ -91,6 +91,7 @@ a:hover
 .tweet .body
 {
     opacity: 0.5;
+    overflow-x: auto;
 }
 
 .tweet.unread .body
