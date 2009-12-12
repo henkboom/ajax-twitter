@@ -1,4 +1,3 @@
-//var friendTimelineUrl = 'https://twitter.com/statuses/friends_timeline.json'
 var friendTimelineUrl = 'https://api.twitter.com/1/statuses/home_timeline.json'
 var highestId = false;
 var readUpTo = false;
@@ -19,11 +18,7 @@ function init(container, debug_container)
     markAsReadButton.click(function(){markAllAsRead(); return false;});
 
     var statusSubmit = $('<input type="submit" id="status_update_submit" value="tweet"/>');
-    statusSubmit.click(function(){
-        setTimeout(getTweets, 2 * 1000);
-        setTimeout(getTweets, 5 * 1000);
-        setTimeout(getTweets, 10 * 1000);
-    })
+    statusSubmit.click(onSubmit)
 
     var updateForm = $('<form />')
         .attr('id', 'status_update_form')
@@ -115,6 +110,16 @@ function markAllAsRead()
 {
     $('.unread').removeClass('unread');
     readUpTo = highestId;
+}
+
+function onSubmit()
+{
+    var iframe = $('#post');
+    $('#post').load(function (e) {
+        getTweets();
+        $('#status_text').val("");
+        $('#status_text').keyup();
+    });
 }
 
 //---- Templates --------------------------------------------------------------
