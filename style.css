@@ -3,7 +3,8 @@
 body
 {
     font-family: "Helvetica", "Arial", sans-serif;
-    font-size: 11pt;
+    font-size: 13px;
+    line-height: 16px;
     background-color: #444;
     color: #444;
 }
@@ -29,6 +30,7 @@ a:hover
     position: relative;
     padding-right: 5em;
     border-bottom: 12px solid #444;
+    margin-bottom: 0.5em;
 }
 
 #status_text
@@ -64,21 +66,22 @@ a:hover
 .tweet
 {
     margin: 0 0 0.5em 0;
+    padding-left: 48px;
+    opacity: 0.5;
+    clear: both;
+}
+
+.tweet.unread
+{
+    opacity: 1;
 }
 
 .tweet .info
 {
     float: left;
-    display: none;
     width: 48px;
-    padding: 1px;
-    margin-left: -56px;
-    font-size: 8px;
-}
-
-.tweet:hover .info
-{
-    /*display: block;*/
+    margin-left: -48px;
+    margin-bottom: 0.5em;
 }
 
 .tweet .info img
@@ -90,17 +93,9 @@ a:hover
 
 .tweet .body
 {
-    opacity: 0.5;
     overflow-x: auto;
-}
-
-.tweet.unread .body
-{
-    opacity: 1.0;
-}
-
-{
-    font-weight: bold;
+    background-color: #fff;
+    padding-left: 0.5em;
 }
 
 .tweet:first-child .info, .tweet:first-child .body
@@ -110,7 +105,6 @@ a:hover
 .tweet_author
 {
     font-weight: bold;
-    /*margin-right: 1em;*/
 }
 
 .tweet_text
@@ -137,6 +131,4 @@ a:hover
 #tweet_list
 {
     list-style-type: none;
-    padding: 0.5em;
-    /*border-bottom: 1px solid lightgray;*/
 }

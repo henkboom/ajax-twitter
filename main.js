@@ -36,6 +36,7 @@ function init(container, debug_container)
     container.append(markAsReadButton);
     container.append(updateForm);
     container.append(tweetListElement);
+    container.append('<div style="clear: both;" />');
 
     $('#status_text').keyup(updateStatus).keyup();
 
@@ -133,8 +134,7 @@ function tweetTemplate(tweet)
 {
     var info = $('<div />')
         .addClass('info')
-        .append('<img src="' + tweet.user.profile_image_url + '" />')
-        ;//.append(tweet.id);
+        .append('<img src="' + tweet.user.profile_image_url + '" />');
     var body = $('<div />')
         .addClass('body')
         .append(tweetAuthorTemplate(tweet.user))
