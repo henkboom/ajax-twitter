@@ -1,6 +1,5 @@
 var friendTimelineUrl = 'https://api.twitter.com/1/statuses/home_timeline.json'
 var highestId = false;
-var readUpTo = false;
 
 var mentionRegex = /@([^.,?!\s]+)/g
 var urlRegex = /([a-zA-Z]*:\/\/\S+[^.,?!\s])/g
@@ -61,9 +60,6 @@ function insertTweets(tweets)
     if(tweets.length > 0 && (!highestId || tweets[0].id > highestId))
         highestId = tweets[0].id;
 
-    if(readUpTo == false)
-        readUpTo = highestId
-
     // merge into tweets list
     var i = 0;
     var element = tweetListElement.children().eq(0);
@@ -110,7 +106,7 @@ function getTweets()
 function markAllAsRead()
 {
     $('.unread').removeClass('unread');
-    readUpTo = highestId;
+    setRead(highestId);
 }
 
 function onSubmit()
@@ -145,7 +141,7 @@ function tweetTemplate(tweet)
         .addClass('tweet')
         .append(info)
         .append(body);
-    if(tweet.id > readUpTo)
+    if(tweet.id > getRead())
         tweetElement.addClass('unread');
     return tweetElement;
 }
@@ -178,6 +174,19 @@ function tweetAuthorTemplate(user)
 }
 
 //---- Utility ----------------------------------------------------------------
+
+function getRead()
+{
+    if($.cookie('read') == null)
+        setRead(highestId);
+
+    return $.cookie('read');
+}
+
+function setRead(val)
+{
+    $.cookie('read', val, {expires: 30});
+}
 
 function putScriptTag(url)
 {
