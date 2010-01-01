@@ -60,10 +60,18 @@ function insertTweets(tweets)
     if(tweets.length > 0 && (!highestId || tweets[0].id > highestId))
         highestId = tweets[0].id;
 
+    var maxi = 0;
+    var read = getRead();
+    while(maxi != tweets.length && tweets[maxi].id > read)
+        maxi = maxi + 1;
+    maxi = maxi + 50;
+    if(maxi > tweets.length)
+        maxi = tweets.length
+
     // merge into tweets list
     var i = 0;
     var element = tweetListElement.children().eq(0);
-    while(i != tweets.length)
+    while(i != maxi)
     {
         if(element.length == 0)
         {
@@ -95,9 +103,10 @@ function getTweets()
     debug.empty();
     debug.append('getting tweets. . .<br />');
     debug.append('highest id: ' + highestId + '<br />');
+
     var url = friendTimelineUrl + '?callback=insertTweets'
     if(highestId == false)
-        url += '&count=50'
+        url += '&count=200';
     else
         url += '&count=200&since_id=' + highestId;
     putScriptTag(url);
@@ -178,7 +187,7 @@ function tweetAuthorTemplate(user)
 function getRead()
 {
     if($.cookie('read') == null)
-        setRead(highestId);
+        setRead(1);
 
     return $.cookie('read');
 }
