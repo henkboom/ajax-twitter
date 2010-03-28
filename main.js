@@ -1,7 +1,7 @@
 var friendTimelineUrl = 'https://api.twitter.com/1/statuses/home_timeline.json'
 var highestId = false;
 
-var mentionRegex = /@([^.,?!\s]+)/g
+var mentionRegex = /@([a-zA-Z0-9_]+)/g
 var urlRegex = /([a-zA-Z]*:\/\/\S+[^.,?!\s])/g
 var hashRegex = /#([^.,?!\s]+)/g
 
