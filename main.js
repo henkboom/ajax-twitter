@@ -179,6 +179,7 @@ function tweetAuthorTemplate(user)
 {
     return $('<a />').addClass('tweet_author')
                      .attr('href', 'http://twitter.com/' + user.screen_name)
+                     .attr('target', '_blank')
                      .append(user.screen_name)
 }
 
