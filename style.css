@@ -93,7 +93,6 @@ a:hover
 
 .tweet .body
 {
-    overflow-x: auto;
     background-color: #fff;
     padding-left: 0.5em;
 }
@@ -109,6 +108,7 @@ a:hover
 
 .tweet_text
 {
+    word-wrap: break-word;
 }
 
 #debug, #debug_form
